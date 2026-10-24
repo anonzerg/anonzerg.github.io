@@ -1,0 +1,19 @@
+anonzerg.github.io
+
+Plain html blog.
+
+  index.html                    home page
+  about.html                    about me
+  posts/index.html              all posts
+  posts/YYYY-MM-DD-slug.html    actual post
+  build.py                      creates posts, regenerates the post lists
+
+Adding a post:
+  1. ./build.py --create-post --title 'title'
+       (date defaults to today; optional: --date YYYY-MM-DD, --slug name)
+  2. edit the body of the new file in posts/
+  3. ./build.py --build
+  4. git add, commit, push
+
+Local preview:
+  python -m http.server 8080
