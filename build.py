@@ -51,7 +51,7 @@ def create_post(title: str, date: str, slug: str) -> None:
     slug = slugify(slug or title)
 
     if not slug:
-        logger.error('Could not make a slug out of tile. pass slug with --slug')
+        logger.error('Could not make a slug out of title. pass slug with --slug')
         sys.exit('Post creation failed.')
 
     post = POSTS_DIR / f'{date}-{slug}.html'
@@ -66,7 +66,7 @@ def create_post(title: str, date: str, slug: str) -> None:
     logger.info('Edit body of post, then run ./build.py --build')
 
 
-def read_post_list() -> (str, str, str):
+def read_post_list() -> list[tuple[(str, str, str)]]:
     posts = []
     for path in POSTS_DIR.glob('*.html'):
         post_filename = POST_FILE_PATTERN.match(path.name)
@@ -110,7 +110,7 @@ def build():
     refresh_post_list(ROOT_DIR / 'index.html', lines[:HOMEPAGE_POSTS_COUNT])
     refresh_post_list(POSTS_DIR / 'index.html', lines)
 
-    logger.info(f'Built len({posts}) post')
+    logger.info(f'Built {len(posts)} post')
 
 def main(args) -> None:
     if args.create_post:
@@ -152,3 +152,6 @@ if __name__ == '__main__':
         main(args)
     except KeyboardInterrupt:
         sys.exit('Interrupted!')
+    except OSError as e:
+        logger.error(e)
+        sys.exit(1)
