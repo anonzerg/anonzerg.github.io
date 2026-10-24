@@ -1,50 +1,46 @@
 @font-face {
-  font-family: "IBM Plex Mono";
-  font-style: normal;
+  font-family: "Iosevka";
+  src: local("Iosevka Medium"), url("/fonts/Iosevka-Medium.woff2") format("woff2");
   font-weight: 500;
-  src: url("../fonts/IBMPlexMono-Medium.woff2") format("woff2");
+  font-display: swap;
 }
 
-:root {
-  --black: #9b9ea4;
-  --blue: #a6dbff;
-  --cyan: #8cf8f7;
-  --green: #b4f6c0;
-  --magenta: #ffcaff;
-  --red: #ffc0b9;
-  --white: #eef1f8;
-  --yellow: #fce094;
-  --background: #14161b;
-  --foreground: #ffffff;
+@font-face {
+  font-family: "Iosevka";
+  src: local("Iosevka Bold"), url("/fonts/Iosevka-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
 }
 
-* {
-  font-family: "IBM Plex Mono";
-  background-color: var(--background);
+body, pre, code, address {
+  font-family: "Iosevka", monospace;
+  font-weight: 500;
 }
 
-.main-containor {
-  text-align: center;
+h1, h2, h3 {
+  font-family: "Iosevka", monospace;
+  font-weight: 700;
 }
 
-.main-header .nav-bar {
-  margin-bottom: 2em;
+body {
+  max-width: 80em;
+  margin: 2em auto;
+  padding: 0 1em;
+  line-height: 1.5;
 }
 
-.main-header .nav-bar ol {
+hr {
+  border: 0;
+  border-top: 1px solid;
+  opacity: .2;
+  margin: 1.5em 0;
 }
 
-.main-header .nav-bar ol li { 
-  list-style-type: none;
-  display: inline-block;
+address {
+  font-style: normal;
+  opacity: .5;
 }
 
-a {
-  color: var(--blue);
-  font-weight: bold;
+pre {
+  overflow-x: auto;
 }
-
-p, h1, h2, h3, h4, h5, h6 {
-  color: var(--foreground);
-}
-
