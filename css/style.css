@@ -12,21 +12,26 @@
   font-display: swap;
 }
 
-body, pre, code, address {
-  font-family: "Iosevka", monospace;
-  font-weight: 500;
-}
-
-h1, h2, h3 {
-  font-family: "Iosevka", monospace;
-  font-weight: 700;
+html {
+  text-size-adjust: 100%;
 }
 
 body {
-  max-width: 80em;
+  font-family: "Iosevka", monospace;
+  font-weight: 500;
+  max-width: 80ch;
   margin: 2em auto;
   padding: 0 1em;
   line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+pre, code {
+  font-family: inherit;
+}
+
+pre {
+  overflow-x: auto;
 }
 
 hr {
@@ -39,8 +44,4 @@ hr {
 address {
   font-style: normal;
   opacity: .5;
-}
-
-pre {
-  overflow-x: auto;
 }
